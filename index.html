@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Welcome / Language Selection -->
+  <div id="welcome" class="screen">
+    <h1 data-key="welcome">Welcome</h1>
+    <label>Select Language:</label>
+    <select id="languageSelect" onchange="setLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="ps">Pashto</option>
+    </select>
+    <button onclick="showScreen('profile')">Start</button>
+  </div>
+
+  <!-- Profile Setup -->
+  <div id="profile" class="screen" style="display:none;">
+    <h2>Profile Setup</h2>
+    <label data-key="age">Age:</label>
+    <input id="age" type="number" placeholder="Your age">
+    <label data-key="hobby">Hobby / Interests:</label>
+    <input id="hobby" type="text" placeholder="Your hobby">
+    <label data-key="dislike">Dislikes:</label>
+    <input id="dislike" type="text" placeholder="What you dislike">
+    <button onclick="saveProfile()">Next</button>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboard" class="screen" style="display:none;">
+    <h2>Your Life Simulation</h2>
+    <p id="summary">Simulation results will appear here.</p>
+    <canvas id="chart"></canvas>
+    <button onclick="showScreen('settings')">Settings</button>
+  </div>
+
+  <!-- Settings -->
+  <div id="settings" class="screen" style="display:none;">
+    <h2>Settings</h2>
+    <label>Language:</label>
+    <select onchange="setLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="ps">Pashto</option>
+    </select>
+    <button onclick="showScreen('dashboard')">Back</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
